@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>세책 — 독서 노트</title>
+    <link rel="icon" href="assets/logo.svg" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/readability.css" />
+    <link rel="stylesheet" href="css/html-version.css" />
+  </head>
+  <body data-page="notebook">
+    <!-- 공통 헤더: 메뉴 문구와 링크를 직접 수정할 수 있습니다. -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html"
+          ><img src="assets/logo.svg" width="48" height="48" alt="" /><span
+            >세책</span
+          ></a
+        >
+        <nav aria-label="주 메뉴" id="main-nav">
+          <a href="index.html">홈</a><a href="search.html">책 검색</a
+          ><a href="library.html">내 서재</a><a href="statistics.html">통계</a
+          ><a href="explore.html">탐색</a><a href="room.html">내 미니홈피</a
+          ><a href="shop.html">상점</a>
+        </nav>
+        <div class="header-actions">
+          <button class="bookmark-ribbon" id="ledger-button">
+            <span data-icon="bookmark"></span
+            ><span class="bookmark-label">책갈피</span
+            ><b class="bookmark-balance" id="balance">—</b>
+          </button>
+          <button class="icon-button" id="notifications" aria-label="알림">
+            <span data-icon="bell"></span>
+          </button>
+          <a class="login-link" id="login-link" href="auth.html">로그인</a>
+          <button
+            class="icon-button logout-button"
+            id="logout"
+            aria-label="로그아웃"
+            hidden
+          >
+            <span data-icon="logout"></span>
+          </button>
+          <button
+            class="mobile-menu icon-button"
+            id="menu-button"
+            aria-label="메뉴 열기"
+            aria-expanded="false"
+          >
+            <span data-icon="menu"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="page-error" class="error-banner" role="alert" hidden></div>
+      <div id="page-loading" class="empty" role="status">
+        불러오는 중입니다.
+      </div>
+      <div id="page-content" hidden>
+        <!-- 이 아래가 이 페이지의 화면입니다. 문구와 배치는 여기에서 수정하세요. -->
+
+        <a href="library.html" class="back-link">← 내 서재</a>
+        <div class="page-heading"><h1 id="notebook-title">독서 노트</h1></div>
+        <div class="notebook-layout">
+          <aside class="book-facts">
+            <div id="note-cover"></div>
+            <h3>책 정보</h3>
+            <dl id="note-facts"></dl>
+            <details class="genre-picker">
+              <summary>세부 장르 선택</summary>
+              <div id="genres" class="genre-options"></div>
+            </details>
+            <label
+              >책 형태<select form="info-form" name="format">
+                <option>종이책</option>
+                <option>전자책</option>
+              </select></label
+            ><label
+              >소장 여부<select form="info-form" name="possession">
+                <option>소장</option>
+                <option>대여</option>
+                <option>미소장</option>
+              </select></label
+            >
+          </aside>
+          <section class="note-editor">
+            <form id="note-form">
+              <details class="note-toggle" open>
+                <summary>1. 요약</summary>
+                <textarea
+                  name="summary"
+                  rows="7"
+                  maxlength="10000"
+                  aria-label="요약"
+                ></textarea>
+              </details>
+              <details class="note-toggle">
+                <summary>2. 스토리</summary>
+                <textarea
+                  name="story"
+                  rows="7"
+                  maxlength="10000"
+                  aria-label="스토리"
+                ></textarea>
+              </details>
+              <details class="note-toggle">
+                <summary>3. 후기</summary>
+                <textarea
+                  name="impression"
+                  rows="7"
+                  maxlength="10000"
+                  aria-label="후기"
+                ></textarea>
+              </details>
+              <details class="note-toggle">
+                <summary>4. 기억에 남는 문장</summary>
+                <div id="quotes"></div>
+                <button type="button" id="add-quote" class="text-button">
+                  + 문장 추가
+                </button>
+              </details>
+              <button class="button">노트 저장</button>
+            </form>
+            <details class="note-toggle log-toggle" open>
+              <summary>읽은 기록 <span class="chip">기록마다 +3</span></summary>
+              <form id="log-form" class="form-stack">
+                <label
+                  >오늘 읽은 쪽수<input
+                    name="pages"
+                    type="text"
+                    inputmode="numeric"
+                    data-digits
+                    maxlength="9"
+                    required /></label
+                ><label
+                  >오늘의 메모<textarea
+                    name="content"
+                    required
+                    maxlength="2000"
+                    rows="3"
+                  ></textarea></label
+                ><button class="button">독서 기록 남기기</button>
+              </form>
+              <div id="logs"></div>
+            </details>
+          </section>
+          <form id="info-form" class="reading-info form-stack">
+            <h3>독서 정보</h3>
+            <label
+              >독서 상태<select name="status">
+                <option value="planned">읽을 예정</option>
+                <option value="reading">읽는 중</option>
+                <option value="finished">완독</option>
+                <option value="paused">중단</option>
+              </select></label
+            ><label
+              >읽은 페이지<input
+                name="read_pages"
+                type="text"
+                inputmode="numeric"
+                data-digits
+                maxlength="9"
+            /></label>
+            <div id="reading-progress"></div>
+            <label>시작일<input name="started_at" type="date" /></label
+            ><label>완독일<input name="finished_at" type="date" /></label
+            ><label>별점<select name="rating" data-rating></select></label>
+            <div id="owned-info" class="form-stack">
+              <label>구매 서점<select name="store" data-stores></select></label
+              ><label
+                >결제금액 (원)<input
+                  name="price"
+                  type="text"
+                  inputmode="numeric"
+                  data-digits
+                  maxlength="9" /></label
+              ><label>구매일<input name="purchased_at" type="date" /></label>
+            </div>
+            <label class="check-label"
+              ><input name="is_public" type="checkbox" />완독한 책을 미니홈피
+              책장에 공개</label
+            >
+            <p class="tiny">노트·기록·구매 정보는 항상 비공개입니다.</p>
+            <button class="button">독서 정보 저장</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- 모든 페이지에서 사용하는 프로필 수정 창. -->
+    <dialog id="profile-dialog" class="modal">
+      <div class="section-head">
+        <h2>프로필 수정</h2>
+        <button type="button" class="icon-button" data-close aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <form id="profile-form" class="form-stack">
+        <input
+          id="photo-file"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          hidden
+        />
+        <button type="button" id="photo-picker" class="photo-upload-area">
+          <span class="photo-preview"
+            ><span id="photo-preview"></span
+            ><span class="photo-add-badge">+</span></span
+          ><span class="photo-upload-copy"
+            ><strong>프로필 사진 추가 / 변경</strong
+            ><span>눌러서 원하는 사진을 선택하세요</span
+            ><small id="photo-name"></small
+          ></span>
+        </button>
+        <p class="tiny">
+          JPG · PNG · WebP, 10MB 이하 · 가운데를 정사각형으로 잘라 저장합니다.
+        </p>
+        <label>닉네임<input name="nickname" required maxlength="30" /></label>
+        <label
+          >자기소개<textarea
+            name="intro"
+            maxlength="160"
+            rows="3"
+            placeholder="나를 소개하는 글을 남겨 주세요."
+          ></textarea
+          ><small>미니홈피 프로필에 표시됩니다.</small></label
+        >
+        <button type="button" id="reset-profile-photo" class="secondary-button">기본 프로필 사진으로 변경</button>
+        <p class="auth-error" id="profile-error" role="alert"></p>
+        <div class="row profile-actions">
+          <button class="button" type="submit">저장</button
+          ><button type="button" class="text-button" data-close>취소</button><button type="button" id="delete-account" class="text-button danger-button">회원탈퇴</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="generic-dialog" class="modal">
+      <div class="section-head">
+        <h2 id="dialog-title"></h2>
+        <button type="button" class="icon-button" data-close aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <div id="dialog-body"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+
+    <noscript
+      >이 사이트의 로그인과 데이터 조회에는 JavaScript가 필요합니다.</noscript
+    >
+    <script type="module" src="js/notebook.js"></script>
+  </body>
+</html>

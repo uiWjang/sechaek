@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>세책 — 미니홈피</title>
+    <link rel="icon" href="assets/logo.svg" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/readability.css" />
+    <link rel="stylesheet" href="css/html-version.css" />
+  </head>
+  <body data-page="room">
+    <!-- 공통 헤더: 메뉴 문구와 링크를 직접 수정할 수 있습니다. -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html"
+          ><img src="assets/logo.svg" width="48" height="48" alt="" /><span
+            >세책</span
+          ></a
+        >
+        <nav aria-label="주 메뉴" id="main-nav">
+          <a href="index.html">홈</a><a href="search.html">책 검색</a
+          ><a href="library.html">내 서재</a><a href="statistics.html">통계</a
+          ><a href="explore.html">탐색</a><a href="room.html">내 미니홈피</a
+          ><a href="shop.html">상점</a>
+        </nav>
+        <div class="header-actions">
+          <button class="bookmark-ribbon" id="ledger-button">
+            <span data-icon="bookmark"></span
+            ><span class="bookmark-label">책갈피</span
+            ><b class="bookmark-balance" id="balance">—</b>
+          </button>
+          <button class="icon-button" id="notifications" aria-label="알림">
+            <span data-icon="bell"></span>
+          </button>
+          <a class="login-link" id="login-link" href="auth.html">로그인</a>
+          <button
+            class="icon-button logout-button"
+            id="logout"
+            aria-label="로그아웃"
+            hidden
+          >
+            <span data-icon="logout"></span>
+          </button>
+          <button
+            class="mobile-menu icon-button"
+            id="menu-button"
+            aria-label="메뉴 열기"
+            aria-expanded="false"
+          >
+            <span data-icon="menu"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="page-error" class="error-banner" role="alert" hidden></div>
+      <div id="page-loading" class="empty" role="status">
+        불러오는 중입니다.
+      </div>
+      <div id="page-content" hidden>
+        <!-- 이 아래가 이 페이지의 화면입니다. 문구와 배치는 여기에서 수정하세요. -->
+
+        <div class="page-heading">
+          <h1 id="room-title">미니홈피</h1>
+          <span class="visit-counter" id="visit-count"></span>
+        </div>
+        <div class="room-page">
+          <aside class="room-sidebar">
+            <section class="room-profile">
+              <div class="room-profile-heading">
+                <span id="room-photo"></span>
+                <div>
+                  <h2 id="room-nickname"></h2>
+                  <button
+                    class="text-button room-profile-settings"
+                    id="room-profile-settings"
+                    hidden
+                  >
+                    프로필 설정
+                  </button>
+                </div>
+              </div>
+              <p class="room-intro" id="room-intro"></p>
+              <hr />
+              <h3>대표 문장</h3>
+              <div id="featured-quote"></div>
+<hr />
+              <div class="profile-monthly-pick">
+                <section aria-label="이번 달의 책">
+                  <div class="section-head">
+                    <h3>이번 달의 책</h3>
+                    <div id="pick-actions" hidden><button class="text-button" id="pick-toggle" type="button">등록</button></div>
+                  </div>
+                  <div id="pick-display" class="monthly-pick-collapse is-open">
+                    <div id="pick-content"></div>
+                  </div>
+                </section>
+              </div>
+            </section>
+            <section class="room-friends panel">
+              <div class="section-head">
+                <h3>친구들</h3>
+                <span id="friends-count"></span>
+              </div>
+              <p class="tiny">팔로우한 독자</p>
+              <ul id="friends"></ul>
+            </section>
+          </aside>
+          <div class="room-main">
+            <div class="tabs" id="room-tabs">
+              <button data-tab="home" class="selected">홈</button
+              ><button data-tab="diary">다이어리</button
+              ><button data-tab="guest">방명록</button
+              ><button data-tab="shelf">책장</button>
+            </div>
+            <section data-room-panel="home">
+              <div class="room-toolbar">
+                <button id="decorate" class="secondary-button" hidden>
+                  방 꾸미기
+                </button>
+              </div>
+              <!-- 미니룸 구조: 창문·액자·책장·아바타의 HTML을 직접 수정할 수 있습니다. -->
+              <div
+                id="miniroom"
+                class="miniroom"
+                tabindex="0"
+                role="group"
+                aria-label="아바타가 움직이는 미니룸"
+                aria-describedby="room-motion-status"
+              >
+                <img
+                  class="pixel-room-background"
+                  src="assets/rooms/basic.png"
+                  alt="기본 서재"
+                  draggable="false"
+                />
+                <span class="room-floor-tint" aria-hidden="true"></span>
+                <span class="walk-target" aria-hidden="true" hidden></span>
+
+                <button
+                  class="fixed-shelf"
+                  id="fixed-shelf"
+                  aria-label="공개한 완독 책장 열기"
+                >
+                  <div>
+                    <span></span><span></span><span></span><span></span
+                    ><span></span><span></span><span></span><span></span>
+                  </div>
+                  <div>
+                    <span></span><span></span><span></span><span></span
+                    ><span></span><span></span>
+                  </div>
+                  <small>나의 책장</small>
+                </button>
+                
+                <div class="room-avatar" id="room-avatar"></div>
+                <div id="placed-items"></div>
+
+<div id="layer-controls" class="layer-controls" hidden><span id="selected-furniture">가구를 선택하세요</span><button type="button" data-layer="back">맨 뒤로</button><button type="button" data-layer="down">뒤로</button><button type="button" data-layer="up">앞으로</button><button type="button" data-layer="front">맨 앞으로</button></div>
+              
+
+              </div>
+              
+<section id="inventory" class="inventory" hidden><div id="inventory-resize" role="separator" aria-label="보유 아이템 높이 조절" aria-orientation="horizontal" aria-valuemin="200" aria-valuemax="600" aria-valuenow="280" tabindex="0"><span></span></div>
+                <div class="section-head">
+                  <button id="inventory-toggle" class="inventory-toggle" type="button" aria-label="보유 아이템 닫기" aria-expanded="true" aria-controls="inventory-grid room-theme-toggle" hidden>▾</button><h3>보유 아이템</h3>
+                  <button id="cancel-decoration" class="text-button">
+                    변경 취소
+                  </button>
+                </div>
+                <details id="room-theme-toggle"><summary>방 테마 변경</summary>              <div class="room-scene-picker" role="group" aria-label="방 테마">
+                <button type="button" data-scene="basic" aria-pressed="false">
+                  <img src="assets/rooms/basic.png" alt="" /><span
+                    >기본 서재 · 무료</span
+                  >
+                </button>
+                <button type="button" data-scene="library" aria-pressed="true">
+                  <img
+                    src="assets/rooms/library-empty.png"
+                    alt=""
+                    loading="lazy"
+                  /><span>햇살 서재 · 로맨스</span>
+                </button>
+                <button type="button" data-scene="attic" aria-pressed="false">
+                  <img
+                    src="assets/rooms/attic-empty.png"
+                    alt=""
+                    loading="lazy"
+                  /><span>숲속 다락방 · 판타지</span>
+                </button>
+                <button type="button" data-scene="train" aria-pressed="false">
+                  <img
+                    src="assets/rooms/train-empty.png"
+                    alt=""
+                    loading="lazy"
+                  /><span>책 읽는 기차 · 추리</span>
+                </button>
+                <button type="button" data-scene="camp" aria-pressed="false">
+                  <img
+                    src="assets/rooms/camp-empty.png"
+                    alt=""
+                    loading="lazy"
+                  /><span>물가의 캠핑 · SF</span>
+                </button>
+              </div>
+              <p class="tiny">
+                테마와 가구는 상점에서 구매한 뒤 방 꾸미기에서 적용하고
+                저장하세요.
+              </p>
+</details><div id="inventory-filters" role="group" aria-label="아이템 종류"><button type="button" data-kind="all" aria-pressed="true">전체</button><button type="button" data-kind="chair" aria-pressed="false">의자</button><button type="button" data-kind="lamp" aria-pressed="false">조명</button><button type="button" data-kind="plant" aria-pressed="false">화분</button><button type="button" data-kind="sofa" aria-pressed="false">소파</button><button type="button" data-kind="desk" aria-pressed="false">책상</button><button type="button" data-kind="rug" aria-pressed="false">카펫</button><button type="button" data-kind="shelf" aria-pressed="false">책장</button></div><div id="inventory-grid" class="inventory-grid"></div>
+                <p class="tiny">
+                  아이템을 누르면 배치·해제됩니다. 배치된 아이템은 드래그하거나
+                  방향키로 옮기세요. 모서리 손잡이를 드래그하면 크기가 바뀝니다.
+                </p>
+                <a href="shop.html">상점에서 더 둘러보기</a>
+              </section>
+<p id="room-motion-status" role="status" hidden></p>
+              <div class="room-book-exhibit">
+<div class="section-head"><h3>전시한 책 <small id="exhibit-count"></small></h3><button id="add-exhibit" type="button" class="text-button" aria-label="전시할 책 추가" title="최대 5권 전시">+</button></div>
+<div class="room-frames" id="exhibit-books"></div></div>
+
+            </section>
+            <section class="panel" data-room-panel="diary" hidden>
+              <h2>다이어리</h2>
+              <form id="diary-form" class="form-stack" hidden>
+                <label
+                  >문장<textarea
+                    name="content"
+                    required
+                    maxlength="2000"
+                  ></textarea></label
+                ><label
+                  >출처 도서<select name="book_id" required></select></label
+                ><label
+                  >공개 범위<select
+                    name="visibility"
+                    data-visibility
+                  ></select></label
+                ><button class="button">문장 저장</button
+                ><button
+                  class="text-button"
+                  id="diary-cancel"
+                  type="button"
+                  hidden
+                >
+                  수정 취소
+                </button>
+              </form>
+              <div id="diary-list"></div>
+            </section>
+            <section class="panel" data-room-panel="guest" hidden>
+              <h2>방명록</h2>
+              <form id="guest-form" class="form-stack" hidden>
+                <label>추천할 책<select name="book_id" required></select></label
+                ><label
+                  >한마디<textarea
+                    name="content"
+                    required
+                    maxlength="1000"
+                  ></textarea></label
+                ><button class="button">방명록 남기기</button>
+              </form>
+              <div id="guest-list"></div>
+            </section>
+            <section class="panel" data-room-panel="shelf" hidden>
+              <h2>공개한 완독 도서</h2>
+              <p>공개 설정한 완독 책만 방문자에게 보여요.</p>
+              <button id="open-shelf" class="button">책장 열기</button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- 모든 페이지에서 사용하는 프로필 수정 창. -->
+    <dialog id="profile-dialog" class="modal">
+      <div class="section-head">
+        <h2>프로필 수정</h2>
+        <button type="button" class="icon-button" data-close aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <form id="profile-form" class="form-stack">
+        <input
+          id="photo-file"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          hidden
+        />
+        <button type="button" id="photo-picker" class="photo-upload-area">
+          <span class="photo-preview"
+            ><span id="photo-preview"></span
+            ><span class="photo-add-badge">+</span></span
+          ><span class="photo-upload-copy"
+            ><strong>프로필 사진 추가 / 변경</strong
+            ><span>눌러서 원하는 사진을 선택하세요</span
+            ><small id="photo-name"></small
+          ></span>
+        </button>
+        <p class="tiny">
+          JPG · PNG · WebP, 10MB 이하 · 가운데를 정사각형으로 잘라 저장합니다.
+        </p>
+        <label>닉네임<input name="nickname" required maxlength="30" /></label>
+        <label
+          >자기소개<textarea
+            name="intro"
+            maxlength="160"
+            rows="3"
+            placeholder="나를 소개하는 글을 남겨 주세요."
+          ></textarea
+          ><small>미니홈피 프로필에 표시됩니다.</small></label
+        >
+        <button type="button" id="reset-profile-photo" class="secondary-button">기본 프로필 사진으로 변경</button>
+        <p class="auth-error" id="profile-error" role="alert"></p>
+        <div class="row profile-actions">
+          <button class="button" type="submit">저장</button
+          ><button type="button" class="text-button" data-close>취소</button><button type="button" id="delete-account" class="text-button danger-button">회원탈퇴</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="generic-dialog" class="modal">
+      <div class="section-head">
+        <h2 id="dialog-title"></h2>
+        <button type="button" class="icon-button" data-close aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <div id="dialog-body"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+
+    <noscript
+      >이 사이트의 로그인과 데이터 조회에는 JavaScript가 필요합니다.</noscript
+    >
+    <script type="module" src="js/room.js"></script>
+  <dialog id="pick-dialog" class="modal" aria-labelledby="pick-dialog-title">
+  <div class="section-head"><h2 id="pick-dialog-title">내 서재에서 추천할 책 선택</h2><button type="button" id="pick-close" class="text-button" aria-label="닫기">×</button></div>
+  <form id="pick-form" class="form-stack">
+    <input type="hidden" name="book_id" />
+    <div id="pick-books" class="pick-book-grid" aria-label="내 서재 책 목록"></div>
+    <p id="pick-selection" role="status">책을 선택해 주세요.</p>
+    <label>추천 이유<textarea name="reason" required maxlength="500"></textarea></label>
+    <div class="row"><button class="button" id="pick-save" disabled>저장</button><button type="button" id="pick-delete" class="text-button" hidden>추천 삭제</button></div>
+  </form>
+</dialog>
+</body>
+</html>

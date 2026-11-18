@@ -1,0 +1,1537 @@
+/* Larger, heavier type and a five-row shelf. */
+:root {
+  font-size: 17px;
+  font-weight: 600;
+  font-synthesis: weight;
+}
+
+body {
+  line-height: 1.75;
+}
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 26px;
+}
+h3 {
+  font-size: 20px;
+}
+
+.site-header {
+  position: static;
+  top: auto;
+  z-index: auto;
+}
+.brand > span {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.site-header nav {
+  font-size: 16px;
+  gap: 22px;
+  font-weight: 700;
+}
+.header-inner {
+  gap: 26px;
+}
+.login-link {
+  font-size: 15px;
+}
+
+small,
+.tiny,
+.eyebrow {
+  font-size: 14px;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+.eyebrow {
+  margin-bottom: 8px;
+}
+
+.button,
+.secondary-button,
+.tabs button,
+label,
+.text-button {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  font-size: 17px;
+  font-weight: 600;
+}
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+}
+
+.search-bar input {
+  font-size: 17px;
+}
+.section-head > a {
+  font-size: 15px;
+}
+.page-heading > span,
+.filter-row > span {
+  font-size: 15px;
+}
+
+.page-heading {
+  margin: 4px 0 28px;
+}
+.page-heading h1 {
+  font-size: 32px;
+}
+.home-grid {
+  align-items: start;
+}
+
+.editorial {
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+}
+.popular {
+  padding: 24px;
+}
+.popular h2 {
+  font-size: 25px;
+}
+
+.shelf-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.shelf-list li {
+  min-width: 0;
+  border-top: 1px solid var(--wood);
+}
+.shelf-list li:first-child {
+  border-top: 0;
+}
+
+.shelf-list .shelf-book-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 0;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.shelf-list .rank {
+  font-size: 19px;
+  font-weight: 700;
+  width: 20px;
+  flex-shrink: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.shelf-list .book-cover.small {
+  width: 68px;
+  min-width: 68px;
+  aspect-ratio: 2 / 2.7;
+  padding: 12px 6px;
+}
+
+.shelf-list .book-cover.small strong {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+.shelf-list .cover-author {
+  display: none;
+}
+
+.shelf-book-info {
+  min-width: 0;
+  flex: 1;
+}
+.shelf-book-info h3 {
+  font-size: 19px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.shelf-book-info p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 6px 0;
+}
+.shelf-book-info .chip {
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+.shelf-list .shelf-book-link > svg {
+  flex-shrink: 0;
+}
+.daily-quote {
+  padding: 24px;
+}
+.daily-quote h3,
+.reviewer h3 {
+  font-size: 20px;
+}
+.daily-quote p {
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 16px 0;
+}
+.daily-quote .text-button {
+  font-size: 14px;
+}
+
+.reviewer {
+  padding: 24px;
+}
+.reviewer > a {
+  font-size: 16px;
+  gap: 10px;
+}
+.reviewer small {
+  font-size: 14px;
+}
+.room-invitation {
+  padding: 18px 24px;
+}
+.room-invitation h3 {
+  font-size: 21px;
+}
+
+.welcome h2 {
+  font-size: 23px;
+}
+.welcome > .button {
+  margin-top: 24px;
+}
+.welcome > .text-button {
+  font-size: 15px;
+}
+.calendar h3 {
+  font-size: 18px;
+}
+.calendar .section-head > span {
+  font-size: 14px;
+}
+.calendar-grid {
+  font-size: 15px;
+  gap: 4px;
+}
+.calendar p {
+  font-size: 14px;
+}
+.calendar-grid b {
+  font-weight: 700;
+}
+
+.current-book h3 {
+  font-size: 18px;
+}
+.current-book small,
+.current-book span {
+  font-size: 14px;
+}
+.current-book p {
+  font-size: 16px !important;
+}
+
+.chip {
+  font-size: 14px;
+}
+.bookmark-ribbon {
+  font-size: 14px;
+  font-weight: 700;
+}
+.bookmark-ribbon b {
+  font-size: 20px;
+}
+
+.book-card h3 {
+  font-size: 19px;
+}
+.book-card p,
+.book-card .eyebrow {
+  font-size: 14px;
+}
+.book-cover strong {
+  font-size: 23px;
+  font-weight: 700;
+}
+.cover-author {
+  font-size: 14px;
+}
+.cover-bottom {
+  font-size: 11px;
+}
+.book-cover.small strong {
+  font-size: 13px;
+}
+.book-cover.small .cover-author {
+  font-size: 10px;
+}
+
+.book-detail article > p,
+.book-detail .description {
+  font-size: 17px;
+}
+.book-detail h3 {
+  font-size: 21px;
+}
+.detail-bottom h2 {
+  font-size: 24px;
+}
+.review p {
+  font-size: 16px;
+}
+.review small {
+  font-size: 14px;
+}
+
+table {
+  font-size: 15px;
+}
+th {
+  font-weight: 700;
+}
+table input {
+  font-size: 15px;
+  width: 95px;
+}
+.library-card h3 {
+  font-size: 19px;
+}
+.library-card p,
+.library-card small {
+  font-size: 14px;
+}
+
+.book-facts dl,
+.genre-picker {
+  font-size: 15px;
+}
+.genre-picker summary span,
+.genre-options label {
+  font-size: 14px;
+}
+.note-toggle summary {
+  font-size: 21px;
+}
+.log-entry p {
+  font-size: 16px;
+}
+.log-entry small {
+  font-size: 14px;
+}
+.back-link {
+  font-size: 15px;
+}
+
+.stats-summary span {
+  font-size: 16px;
+}
+.person p {
+  font-size: 16px;
+}
+.empty p {
+  font-size: 16px;
+}
+.room-profile p,
+.room-profile blockquote small {
+  font-size: 15px;
+}
+.room-toolbar > span {
+  font-size: 15px;
+}
+.room-below p {
+  font-size: 16px;
+}
+.room-below summary {
+  font-size: 15px;
+}
+.room-profile h2 {
+  font-size: 24px;
+}
+.visit-counter {
+  font-size: 14px;
+}
+.visit-counter small {
+  font-size: 12px;
+}
+
+.inventory-grid > button {
+  font-size: 13px;
+  width: 100px;
+}
+.shop-set p {
+  font-size: 16px;
+}
+.shop-card-body h3 {
+  font-size: 20px;
+}
+.price-tag {
+  font-size: 16px;
+}
+.diary-card p {
+  font-size: 16px;
+}
+.toast,
+.notice,
+.error-banner {
+  font-size: 16px;
+}
+
+.auth-wrap {
+  display: block;
+  max-width: 540px;
+  margin: 20px auto;
+}
+.auth-wrap .panel {
+  padding: 30px;
+}
+.auth-wrap h1 {
+  font-size: 30px;
+}
+footer {
+  font-size: 15px;
+}
+footer small {
+  font-size: 14px;
+}
+
+/* Interaction feedback, without persistent decorative motion. */
+.route-content {
+  animation: screen-enter 280ms ease-out;
+}
+.shelf-list li {
+  animation: shelf-enter 300ms ease-out both;
+}
+.shelf-list li:nth-child(2) {
+  animation-delay: 45ms;
+}
+.shelf-list li:nth-child(3) {
+  animation-delay: 90ms;
+}
+.shelf-list li:nth-child(4) {
+  animation-delay: 135ms;
+}
+.shelf-list li:nth-child(5) {
+  animation-delay: 180ms;
+}
+
+.button,
+.secondary-button,
+.tabs button,
+.icon-button,
+.book-cover,
+.shop-card,
+.library-card,
+.shelf-list .shelf-book-link,
+.inventory-grid > button {
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+button:active:not(:disabled),
+.button:active,
+.secondary-button:active {
+  transform: scale(0.97);
+}
+
+.site-header nav a {
+  position: relative;
+  transition: opacity 150ms ease;
+}
+.site-header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  background: var(--wood);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+.site-header nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.tabs button.selected {
+  animation: tab-select 220ms ease-out;
+}
+.progress > span {
+  transition: width 400ms ease;
+}
+
+details[open] > :not(summary) {
+  animation: disclosure-enter 220ms ease-out;
+}
+.modal {
+  animation: modal-enter 220ms ease-out;
+}
+.toast {
+  animation: toast-enter 250ms ease-out;
+}
+
+@media (hover: hover) {
+  .button:hover:not(:disabled),
+  .secondary-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+  .book-card:hover .book-cover {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+  .shop-card:hover {
+    transform: translateY(-4px);
+  }
+  .library-card:hover {
+    border-color: var(--moss);
+  }
+  .shelf-list .shelf-book-link:hover {
+    background: var(--paper);
+    transform: translateX(4px);
+  }
+  .icon-button:hover {
+    transform: rotate(-7deg);
+  }
+  .inventory-grid > button:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes screen-enter {
+  from {
+    opacity: 0.3;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shelf-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tab-select {
+  from {
+    box-shadow: inset 0 -3px var(--moss);
+    transform: translateY(2px);
+  }
+  to {
+    box-shadow: inset 0 0 transparent;
+    transform: translateY(0);
+  }
+}
+
+@keyframes disclosure-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 1150px) {
+  .site-header nav {
+    gap: 16px;
+  }
+  .editorial {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+  .shelf-list .shelf-book-link {
+    gap: 10px;
+  }
+  .popular {
+    padding: 20px;
+  }
+  .daily-quote,
+  .reviewer {
+    padding: 20px;
+  }
+  .shelf-book-info h3 {
+    font-size: 18px;
+  }
+  .shelf-list .shelf-book-link > svg {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .editorial {
+    grid-template-columns: 1.8fr 1fr;
+  }
+  .shelf-list .book-cover.small {
+    width: 65px;
+    min-width: 65px;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand > span {
+    font-size: 27px;
+  }
+  .site-header nav {
+    font-size: 16px;
+  }
+  .header-inner {
+    padding: 16px;
+  }
+  .bookmark-ribbon {
+    font-size: 12px;
+  }
+  .bookmark-ribbon b {
+    font-size: 17px;
+  }
+  .editorial {
+    grid-template-columns: 1fr;
+  }
+  .editorial-aside {
+    grid-template-columns: 1fr;
+  }
+  .daily-quote {
+    border-right: 0;
+    border-bottom: 1px solid var(--wood);
+  }
+  .shelf-list .shelf-book-link {
+    gap: 14px;
+    padding: 16px 0;
+  }
+  .shelf-book-info h3 {
+    font-size: 19px;
+  }
+  .shelf-book-info p {
+    font-size: 14px;
+  }
+  .shelf-list .rank {
+    font-size: 19px;
+  }
+  .shelf-list .shelf-book-link > svg {
+    display: block;
+    width: 16px;
+  }
+  .shelf-list .book-cover.small {
+    width: 61px;
+    min-width: 61px;
+  }
+  .home-sidebar .welcome {
+    display: block;
+  }
+  .home-sidebar {
+    display: flex;
+  }
+  .home-sidebar > .panel {
+    width: 100%;
+  }
+  .room-invitation h3 {
+    font-size: 20px;
+  }
+  .book-grid .book-cover strong {
+    font-size: 20px;
+  }
+  .book-detail .book-cover strong {
+    font-size: 14px;
+  }
+  .book-detail article > p {
+    font-size: 16px;
+  }
+  .book-detail .description {
+    font-size: 16px;
+  }
+  .shop-card-body h3 {
+    font-size: 17px;
+  }
+  .shop-card-body .button {
+    font-size: 15px;
+  }
+  .shop-card-body .eyebrow {
+    font-size: 14px;
+  }
+  .tabs button {
+    font-size: 16px;
+    padding: 11px 14px;
+  }
+  .book-facts .book-cover strong {
+    font-size: 14px;
+  }
+  .book-card .eyebrow,
+  .book-card p {
+    font-size: 14px;
+  }
+  .page-heading h1 {
+    font-size: 29px;
+  }
+  .search-bar input {
+    font-size: 16px;
+  }
+  .calendar-grid {
+    font-size: 16px;
+  }
+  .toast {
+    font-size: 15px;
+  }
+  .room-toolbar .secondary-button {
+    font-size: 15px;
+  }
+  .room-frame > span,
+  .fixed-shelf small {
+    font-weight: 700;
+  }
+  .stats-summary h2 {
+    font-size: 24px;
+  }
+  .login-link {
+    font-size: 14px;
+  }
+  .visit-counter small {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-inner {
+    padding: 12px 8px;
+  }
+  .brand > span {
+    font-size: 25px;
+  }
+  .bookmark-ribbon {
+    font-size: 11px;
+  }
+  .shelf-list .shelf-book-link {
+    gap: 9px;
+  }
+  .shelf-list .rank {
+    width: 15px;
+  }
+  .shelf-list .book-cover.small {
+    width: 53px;
+    min-width: 53px;
+  }
+  .shelf-book-info h3 {
+    font-size: 17px;
+  }
+  .shelf-list .shelf-book-link > svg {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* A single navigation indicator and a fifteen-book shelf. */
+.site-header nav a,
+.site-header nav a:hover,
+.site-header nav a.active {
+  border-bottom: 0;
+  padding-bottom: 6px;
+  text-decoration: none;
+}
+
+.site-header nav a::after {
+  bottom: 0;
+  height: 2px;
+  background: var(--wood);
+}
+
+.site-header nav a.active::after,
+.site-header nav a:hover::after,
+.site-header nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.editorial {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.popular {
+  border-right: 0;
+}
+
+.editorial-aside {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--wood);
+}
+
+.daily-quote {
+  border-bottom: 0;
+  border-right: 1px solid var(--wood);
+}
+
+.shelf-list {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px 16px;
+}
+
+.shelf-list li {
+  border: 0;
+  position: relative;
+}
+
+.shelf-list .shelf-book-link {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--wood);
+}
+
+.shelf-list .rank {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  background: var(--cream);
+  font-size: 14px;
+  width: 24px;
+  line-height: 24px;
+  border: 1px solid var(--wood);
+  border-radius: 3px;
+}
+
+.shelf-list .book-cover.small {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 2/2.8;
+  padding: 30px 10px 18px;
+}
+
+.shelf-list .book-cover.small strong {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.shelf-book-info h3 {
+  font-size: 17px;
+  line-height: 1.6;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.shelf-book-info p {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.shelf-book-info .chip {
+  font-size: 12px;
+  white-space: normal;
+}
+
+.shelf-list .shelf-book-link > svg {
+  display: none;
+}
+
+@media (hover: hover) {
+  .shelf-list .shelf-book-link:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 600px) {
+  .shelf-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 16px;
+  }
+  .editorial-aside {
+    grid-template-columns: 1fr;
+  }
+  .daily-quote {
+    border-right: 0;
+    border-bottom: 1px solid var(--wood);
+  }
+}
+
+/* Production home: sentence and readers above the monthly shelf. */
+.editorial-aside {
+  grid-row: 1;
+  border-top: 0;
+  border-bottom: 1px solid var(--wood);
+}
+
+.popular {
+  grid-row: 2;
+}
+.source-facts {
+  font-size: 14px;
+  border-top: 1px solid var(--wood);
+  margin-top: 20px;
+  padding-top: 12px;
+}
+.source-facts p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.auth-error {
+  color: #b42318;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.6;
+}
+.auth-wrap input[aria-invalid="true"] {
+  border-color: #b42318;
+}
+
+/* Profile, calendar and compact editing controls */
+.brand > img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #d5c1a8;
+  border-radius: 50%;
+  background: #f3f0eb;
+  color: #3b2f25;
+  flex-shrink: 0;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-avatar.small {
+  width: 34px;
+  height: 34px;
+}
+
+.welcome .profile-avatar {
+  display: flex;
+  margin: 10px 0;
+}
+.profile-edit {
+  margin-bottom: 20px;
+}
+
+.logout-button:hover,
+.logout-button:focus-visible {
+  color: #b42318 !important;
+}
+
+.calendar-grid button {
+  border: 0;
+  background: transparent;
+  min-height: 34px;
+  padding: 3px;
+  border-radius: 4px;
+  color: #3b2f25;
+  font: inherit;
+}
+
+.calendar-grid button.recorded {
+  background: #d5c1a8;
+  font-weight: 700;
+}
+
+.calendar-grid button.today {
+  box-shadow: inset 0 0 0 1px #5f7c59;
+}
+
+.calendar-grid button.selected-date {
+  outline: 2px solid #5f7c59;
+  outline-offset: 1px;
+}
+
+.calendar-records {
+  border-top: 1px solid #d5c1a8;
+  padding-top: 12px;
+}
+.calendar-records h4 {
+  margin: 0 0 8px;
+}
+.calendar-records a {
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px dashed #d5c1a8;
+}
+.calendar-records small {
+  display: block;
+  overflow-wrap: anywhere;
+  margin-top: 5px;
+}
+
+.genre-picker select {
+  width: 100%;
+  margin-top: 8px;
+}
+.genre-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.genre-chips button {
+  gap: 6px;
+  white-space: normal;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .welcome {
+    display: block;
+  }
+  .brand > img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Keep the book link and the provider link in separate rows. */
+.shelf-list li {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-bottom: 1px solid var(--wood);
+  padding-bottom: 12px;
+}
+
+.shelf-list .shelf-book-link {
+  height: auto;
+  flex: 1;
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.shelf-list .provider-link {
+  display: block;
+  flex: none;
+  height: auto;
+  padding: 8px 0 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.shelf-list .book-cover.small {
+  flex: none;
+}
+
+.shelf-list .book-cover.small.actual-cover {
+  padding: 0;
+  aspect-ratio: 2/3;
+  width: 100%;
+  min-width: 0;
+}
+
+.shelf-list .actual-cover img {
+  display: block;
+  object-position: center;
+  min-width: 0;
+}
+
+.shelf-book-info {
+  min-width: 0;
+}
+.shelf-book-info h3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 3.2em;
+}
+.shelf-book-info p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 3em;
+}
+
+.room-frame {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.room-frame .book-cover.small {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.room-frame .book-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.room-frame .book-cover strong {
+  font-size: 7px;
+  line-height: 1.3;
+}
+.room-frame .cover-author {
+  display: none;
+}
+
+.catalog-pagination {
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.catalog-pagination button {
+  min-width: 38px;
+  height: 42px;
+  padding: 6px 10px;
+  background: var(--cream);
+  color: var(--ink);
+}
+.catalog-pagination .current-page {
+  background: var(--wood);
+  font-weight: 700;
+  border: 2px solid var(--moss);
+}
+
+@media (max-width: 600px) {
+  .catalog-pagination {
+    gap: 4px;
+  }
+  .catalog-pagination button {
+    min-width: 28px;
+    height: 38px;
+    padding: 4px 6px;
+    font-size: 14px;
+  }
+}
+
+/* Keep the bookmark icon, label and balance aligned independently. */
+.header-actions .bookmark-ribbon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-height: 54px;
+  padding: 10px 14px 16px;
+  white-space: nowrap;
+  line-height: 1.25;
+}
+
+.bookmark-ribbon > svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.bookmark-ribbon .bookmark-label {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.bookmark-ribbon .bookmark-balance {
+  display: block;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+@media (max-width: 600px) {
+  .header-actions .bookmark-ribbon {
+    gap: 6px;
+    min-height: 46px;
+    padding: 8px 10px 14px;
+  }
+  .bookmark-ribbon .bookmark-label {
+    font-size: 12px;
+  }
+  .bookmark-ribbon .bookmark-balance {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-actions .bookmark-ribbon {
+    gap: 5px;
+    padding-inline: 7px;
+  }
+  .bookmark-ribbon .bookmark-label {
+    font-size: 11px;
+  }
+}
+
+.home-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+
+.profile-avatar-button {
+  border: 0;
+  background: none;
+  padding: 0;
+  flex: none;
+  border-radius: 50%;
+}
+
+.welcome .home-profile .profile-avatar {
+  margin: 0;
+  width: 68px;
+  height: 68px;
+}
+
+.home-profile-details {
+  min-width: 0;
+}
+.home-profile-details h2 {
+  margin: 0 0 5px;
+  overflow-wrap: anywhere;
+}
+
+.home-profile .profile-edit {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #6b6b6b;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.home-profile .profile-edit:hover {
+  text-decoration: underline;
+}
+.last-record-date {
+  display: block;
+  margin-top: 8px;
+}
+
+.photo-file-input {
+  display: none;
+}
+
+.photo-upload-area {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  padding: 24px;
+  border: 2px dashed var(--wood);
+  border-radius: 6px;
+  background: var(--cream);
+  text-align: left;
+}
+
+.photo-upload-area:hover {
+  border-color: var(--moss);
+  background: var(--paper);
+}
+
+.photo-preview {
+  position: relative;
+  flex: none;
+}
+.photo-preview .profile-avatar {
+  width: 96px;
+  height: 96px;
+}
+
+.photo-add-badge {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--cream);
+  border-radius: 50%;
+  background: var(--moss);
+  color: var(--cream);
+}
+
+.photo-upload-copy {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.photo-upload-copy strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+}
+.photo-upload-copy > span,
+.photo-upload-copy small {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .photo-upload-area {
+    padding: 18px;
+    gap: 16px;
+  }
+  .photo-preview .profile-avatar {
+    width: 72px;
+    height: 72px;
+  }
+  .photo-upload-copy strong {
+    font-size: 16px;
+  }
+}
+
+.room-sidebar {
+  display: grid;
+  gap: 18px;
+  align-self: start;
+  min-width: 0;
+}
+
+.room-sidebar .room-profile {
+  padding: 20px;
+  text-align: left;
+}
+
+.room-profile-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.room-profile-heading .profile-avatar {
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  flex: none;
+}
+
+.room-profile-heading > div {
+  min-width: 0;
+}
+.room-profile-heading h2 {
+  margin: 0 0 5px;
+  font-size: 21px;
+  overflow-wrap: anywhere;
+}
+
+.room-profile-heading .room-profile-settings {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b6b6b;
+  padding: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.room-profile-heading .room-profile-settings:hover {
+  text-decoration: underline;
+}
+
+.room-profile .room-intro {
+  font-size: 14px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 18px 0;
+}
+
+.room-friends.panel {
+  padding: 20px;
+  min-width: 0;
+}
+.room-friends h3 {
+  margin: 0;
+  font-size: 18px;
+}
+.room-friends ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+.room-friends li + li {
+  border-top: 1px dashed var(--wood);
+}
+
+.room-friends li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+}
+.room-friends li a > span:not(.profile-avatar) {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.room-friends li a > svg {
+  flex: none;
+}
+
+.room-main .room-below {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 850px) {
+  .room-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .room-sidebar .room-profile {
+    display: block;
+  }
+  .room-sidebar .room-profile h3,
+  .room-sidebar .room-profile blockquote,
+  .room-sidebar .room-profile hr {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .room-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.monthly-pick-toggle {
+  min-width: 72px;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.monthly-pick-toggle svg {
+  transition: transform 280ms ease;
+}
+
+.monthly-pick-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.monthly-pick-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    grid-template-rows 320ms ease,
+    opacity 240ms ease,
+    visibility 320ms;
+}
+
+.monthly-pick-collapse.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+}
+
+.monthly-pick-collapse > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.monthly-pick-collapse .form-stack {
+  padding: 4px 3px 8px;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monthly-pick-collapse,
+  .monthly-pick-toggle svg {
+    transition: none;
+  }
+}
+
+.purchase-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+.purchase-fields label,
+.purchase-fields input {
+  min-width: 0;
+  width: 100%;
+}

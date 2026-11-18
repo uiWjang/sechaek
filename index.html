@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>세책 — 홈</title>
+    <link rel="icon" href="assets/logo.svg" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/readability.css" />
+    <link rel="stylesheet" href="css/html-version.css" />
+  </head>
+  <body data-page="index">
+    <!-- 공통 헤더: 메뉴 문구와 링크를 직접 수정할 수 있습니다. -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html"
+          ><img src="assets/logo.svg" width="48" height="48" alt="" /><span
+            >세책</span
+          ></a
+        >
+        <nav aria-label="주 메뉴" id="main-nav">
+          <a href="index.html">홈</a><a href="search.html">책 검색</a
+          ><a href="library.html">내 서재</a><a href="statistics.html">통계</a
+          ><a href="explore.html">탐색</a><a href="room.html">내 미니홈피</a
+          ><a href="shop.html">상점</a>
+        </nav>
+        <div class="header-actions">
+          <button class="bookmark-ribbon" id="ledger-button">
+            <span data-icon="bookmark"></span
+            ><span class="bookmark-label">책갈피</span
+            ><b class="bookmark-balance" id="balance">—</b>
+          </button>
+          <button class="icon-button" id="notifications" aria-label="알림">
+            <span data-icon="bell"></span>
+          </button>
+          <a class="login-link" id="login-link" href="auth.html">로그인</a>
+          <button
+            class="icon-button logout-button"
+            id="logout"
+            aria-label="로그아웃"
+            hidden
+          >
+            <span data-icon="logout"></span>
+          </button>
+          <button
+            class="mobile-menu icon-button"
+            id="menu-button"
+            aria-label="메뉴 열기"
+            aria-expanded="false"
+          >
+            <span data-icon="menu"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="page-error" class="error-banner" role="alert" hidden></div>
+      <div id="page-loading" class="empty" role="status">
+        불러오는 중입니다.
+      </div>
+      <div id="page-content" hidden>
+        <!-- 이 아래가 이 페이지의 화면입니다. 문구와 배치는 여기에서 수정하세요. -->
+
+        <div class="home-grid">
+          <div class="home-content">
+            <form class="search-bar" action="search.html">
+              <span data-icon="search"></span
+              ><input
+                name="q"
+                aria-label="책 또는 작가 검색"
+                placeholder="책 제목 또는 작가 검색"
+              /><button aria-label="검색">↗</button>
+            </form>
+            <div class="editorial">
+              <aside class="editorial-aside">
+                <section class="daily-quote">
+                  <h3>오늘의 문장</h3>
+                  <div id="daily-quote"></div>
+                  <a class="text-button" href="room.html?tab=diary"
+                    >다이어리 열기 ↗</a
+                  >
+                </section>
+                <section class="reviewer">
+                  <h3>추천 독자</h3>
+                  <div id="recommended-readers"></div>
+                </section>
+              </aside>
+              <section class="popular">
+                <div class="section-head">
+                  <h2>인기차트</h2>
+                  <a href="search.html">모든 책 ↗</a>
+                </div>
+                <p class="tiny">예스24 국내도서 종합 베스트셀러</p>
+                <ol id="home-chart" class="shelf-list"></ol>
+                <p id="chart-source" class="tiny"></p>
+              </section>
+            </div>
+          </div>
+          <aside class="home-sidebar">
+            <section class="panel welcome">
+              <div class="home-profile" id="home-profile"></div>
+              <div id="last-book"></div>
+              <a class="button" id="library-link" href="library.html"
+                >내 서재 ↗</a
+              >
+            </section>
+            <section class="panel calendar">
+              <div class="section-head">
+                <h3>독서 기록 달력</h3>
+                <span id="calendar-month"></span>
+              </div>
+              <div class="calendar-grid" id="calendar-grid"></div>
+              <p><span class="calendar-key"></span> 기록한 날</p>
+              <div class="calendar-records" id="calendar-records"></div>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <!-- 모든 페이지에서 사용하는 프로필 수정 창. -->
+    <dialog id="profile-dialog" class="modal">
+      <div class="section-head">
+        <h2>프로필 수정</h2>
+        <button type="button" class="icon-button" data-close aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <form id="profile-form" class="form-stack">
+        <input
+          id="photo-file"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          hidden
+        />
+        <button type="button" id="photo-picker" class="photo-upload-area">
+          <span class="photo-preview"
+            ><span id="photo-preview"></span
+            ><span class="photo-add-badge">+</span></span
+          ><span class="photo-upload-copy"
+            ><strong>프로필 사진 추가 / 변경</strong
+            ><span>눌러서 원하는 사진을 선택하세요</span
+            ><small id="photo-name"></small
+          ></span>
+        </button>
+        <p class="tiny">
+          JPG · PNG · WebP, 10MB 이하 · 가운데를 정사각형으로 잘라 저장합니다.
+        </p>
+        <label>닉네임<input name="nickname" required maxlength="30" /></label>
+        <label
+          >자기소개<textarea
+            name="intro"
+            maxlength="160"
+            rows="3"
+            placeholder="나를 소개하는 글을 남겨 주세요."
+          ></textarea
+          ><small>미니홈피 프로필에 표시됩니다.</small></label
+        >
+        <button type="button" id="reset-profile-photo" class="secondary-button">기본 프로필 사진으로 변경</button>
+        <p class="auth-error" id="profile-error" role="alert"></p>
+        <div class="row profile-actions">
+          <button class="button" type="submit">저장</button
+          ><button type="button" class="text-button" data-close>취소</button><button type="button" id="delete-account" class="text-button danger-button">회원탈퇴</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="generic-dialog" class="modal">
+      <div class="section-head">
+        <h2 id="dialog-title"></h2>
+        <button type="button" class="icon-button" data-close aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <div id="dialog-body"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+
+    <noscript
+      >이 사이트의 로그인과 데이터 조회에는 JavaScript가 필요합니다.</noscript
+    >
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>
