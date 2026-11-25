@@ -244,9 +244,14 @@ export async function loadTables(names = tables) {
   updateHeader();
 }
 export async function catalog(body) {
-  const r = await fetch("/api/catalog", {
+  const local = ["localhost", "127.0.0.1"].includes(location.hostname) &&
+    location.port === "5174";
+  const r = await fetch(local ? "/api/catalog" : `${config.url}/functions/v1/yes24`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...(!local ? { apikey: config.key } : {}),
+    },
     body: JSON.stringify(body),
   });
   const result = await r.json();

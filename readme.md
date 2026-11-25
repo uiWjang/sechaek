@@ -54,7 +54,8 @@ HTML/CSS/JS를 수정하고 저장한 뒤 브라우저를 새로고침하면 바
 - 비공개 데이터는 기존 Supabase RLS로 보호됩니다. 노트 공개 설정은 없습니다.
 - 인터넷이 있어야 DB·예스24·폰트가 연결됩니다. USB에 전체 DB가 저장되는 것은 아닙니다.
 - 개발 서버는 127.0.0.1에만 연결됩니다. 외부 공개 배포는 하지 않았습니다.
-- Live Server만으로는 `/api/catalog` 중계가 없으므로 예스24 검색이 안 됩니다. 제공된 실행 파일을 사용하세요.
+- 기본 로컬 서버(5174)는 `/api/catalog` 중계를 사용하고, GitHub Pages에서는 Supabase `yes24` Edge Function을 직접 호출합니다.
+- 공개 사이트의 origin은 Supabase Edge Functions → Secrets의 `YES24_ALLOWED_ORIGINS`에 등록해야 합니다. 현재 GitHub Pages origin은 `https://uiwjang.github.io`입니다(경로 제외). 기존 허용 주소는 쉼표로 함께 유지하세요.
 - 포인트/완독 보상은 기존 서버 RPC·트리거를 사용합니다. 서버 함수와 키를 새로 만들 필요 없습니다.
 
 ## 교수님께 전달
